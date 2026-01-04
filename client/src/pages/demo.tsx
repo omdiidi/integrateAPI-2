@@ -1,5 +1,4 @@
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Disc3, Camera, ImageOff, Sparkles, MapPin, Printer, Save, Minus, Plus, Info, ExternalLink } from "lucide-react";
@@ -50,7 +49,6 @@ export default function Demo() {
                         <div className="bg-slate-100 rounded-2xl h-96" />
                     </div>
                 </main>
-                <Footer />
             </div>
         );
     }
@@ -223,10 +221,27 @@ export default function Demo() {
                                 View Demo
                             </Button>
                         </motion.div>
+
+                        {/* Learn More Button */}
+                        <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.7 }}
+                            className="pt-8 flex justify-center"
+                        >
+                            <motion.a
+                                href="/services"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#007AFF] to-[#5856D6] text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                            >
+                                Learn more about us
+                                <ExternalLink className="w-5 h-5" />
+                            </motion.a>
+                        </motion.div>
                     </motion.div>
                 </div>
             </motion.main>
-            <Footer />
         </div>
     );
 }

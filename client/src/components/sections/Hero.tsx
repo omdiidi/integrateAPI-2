@@ -72,7 +72,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl"
+            className="max-w-xl -mt-12 md:mt-0"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 border border-slate-200 text-xs font-medium text-slate-600 mb-3 md:mb-6 backdrop-blur-sm shadow-sm">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
