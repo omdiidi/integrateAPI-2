@@ -1,0 +1,190 @@
+Prompt
+
+Build a production-ready, modern marketing website for my consulting and integrations automation business named IntegrateAPI.
+
+Core goal
+Communicate instantly: IntegrateAPI replaces manual work with simple digital systems that teams actually use. We modernize small local businesses with messy operations, paper-based tracking, and disconnected tools - without forcing them to change how they truly run the business. The vibe is calm, confident, practical, operator-led.
+
+High-level visual direction
+Create a premium, high-contrast, tech-forward landing experience with:
+
+A bold hero with a soft multi-color gradient background and a diagonal/angled transition into a clean white content area
+
+Subtle background grid lines and dotted guides (very light) across light sections
+
+Large editorial typography, lots of whitespace, crisp alignment
+
+Pill-shaped buttons and chips, clean borders, soft shadows
+
+“Floating UI” mock cards built with HTML/CSS (no external images). Use simple SVG charts, blocks, and lines to imply dashboards and workflows.
+
+Important constraint
+
+Do NOT use any third-party brand names, product names, or copy from other companies
+
+Do NOT use images. All visuals must be made from CSS + SVG + simple shapes and mock UI cards.
+
+Tech requirements
+
+Next.js (App Router) + TypeScript + Tailwind CSS
+
+Clean component structure: Container, Section, SectionHeading, Button, Card, Nav, Footer, LogoWall, FeatureSplit, StatsBand, CarouselCards
+
+Accessibility: semantic HTML, correct heading order, keyboard navigation, visible focus, aria labels
+
+SEO: per-page title/description, OpenGraph, sitemap, robots
+
+Performance: minimal dependencies, prefer CSS + small helpers, avoid heavy animation libraries
+
+Contact form with validation and success state. Use an API route that logs submissions server-side as a starter (or use an env var placeholder for form action).
+
+Site structure
+Build a small multi-page site with clear navigation:
+
+Home
+
+Services
+
+How It Works
+
+Use Cases
+
+About
+
+Contact
+
+Global navigation
+
+Left: IntegrateAPI wordmark (text logo)
+
+Right: links to pages
+
+Primary CTA button: “Book a quick systems audit”
+
+Secondary link: “Contact”
+
+On the hero section, nav sits over the gradient background and stays readable.
+
+Homepage sections and layout style
+
+Hero (premium gradient + floating UI cards)
+
+Left: giant headline (2 lines), short supporting paragraph, email capture or simple CTA row
+
+Right: layered mock UI cards (no images) - one “dashboard” card with a tiny SVG line chart, one “workflow” card with steps, one “mobile” card shape - with soft shadows and slight blur behind
+
+Add a small announcement pill above the headline (generic, not referencing other brands) like “Now taking new projects - Q1 openings”
+
+Primary CTA: Book a quick systems audit
+
+Secondary CTA link: See use cases
+
+Logo wall (text-only)
+
+A row/grid of 8-12 neutral “client-style” text logos like: Northside Dental, Elmwood Auto, Lakeshore HVAC, Riverbend Logistics, etc (fictional).
+
+Light separators and lots of whitespace.
+
+Modular solutions section (light gray background + subtle grid)
+
+Left: small eyebrow label in accent color, big headline, short paragraph
+
+Right: a network of small icon tiles (SVG line icons) with one highlighted tile and thin connector lines (SVG) to imply “connected tools”
+
+CTA button styled as a rounded pill with arrow.
+
+Repeating feature split sections (3 sections)
+Each section follows the same pattern:
+
+Left: small icon + label, large heading, short paragraph, pill CTA, and a “See also” list of 3 internal links
+
+Right: a big floating mock “product UI” panel (built from divs) that looks like a dashboard/pricing/table/form. No images - just clean UI blocks, subtle borders, and tiny SVG sparklines.
+The three feature themes should map to IntegrateAPI:
+
+Workflow digitization - replace paper and retyping
+
+Tool integrations - connect POS, scheduling, CRM, invoicing, spreadsheets, email
+
+Operational dashboards - visibility without busywork
+
+Dark “scale and reliability” section
+
+Full-width dark navy background
+
+Left: eyebrow label, big white headline, short paragraph
+
+Right: an abstract dotted “globe” made as an SVG dot matrix or pattern (no images), plus 2-3 curved arc lines with small nodes to imply movement
+
+Bottom: a 4-column stats band with realistic but non-specific stats (avoid anything that sounds like a copied claim). Example style: “Hours saved weekly”, “Fewer handoffs”, “Faster turnaround”, “Cleaner data”. Use concise supporting text.
+
+Card carousel section
+
+Heading + short description + left/right arrow buttons
+
+Large cards with a thin top accent bar, soft shadow, and lots of padding
+
+Each card represents a business type you serve (fictional examples): Clinic, Contractor, Retail, Logistics, Property services, etc
+
+Cards include: title, 2-3 sentence description, “Learn more” link, and a bottom row of tiny text “tool icons” as words (ex: Scheduling, Payments, CRM) - no images.
+
+Final CTA band
+
+Clean white section with one strong line and a short supporting sentence
+
+Button: Book a quick systems audit
+
+Secondary: Email link
+
+Footer
+Minimal, with:
+
+One-sentence mission line
+
+Contact email and service area line (generic)
+
+Page links
+
+Copyright
+
+Design tokens
+
+Typography: Inter (or similar) with system fallback. Large bold headlines, clean hierarchy.
+
+Colors:
+
+Base background: white and very light gray sections
+
+Accent: #5E84EF for links, small labels, thin bars, buttons
+
+Add a soft hero gradient (tasteful) and a dark navy section for contrast
+
+Components: pill buttons, thin borders, subtle shadows, rounded corners.
+
+Motion and interaction requirements (no heavy libs)
+Use CSS + small IntersectionObserver helpers:
+
+Hero background gradient subtly shifts position (very slow)
+
+Floating UI cards gently drift up/down (very subtle)
+
+Scroll reveal: fade + slight translate for sections
+
+Buttons: hover glow + tiny lift, active press down
+
+Optional: primary CTA has a very subtle pulse/breathing animation until hovered
+
+Card hover: lift + shadow increase
+
+Carousel: smooth scroll with snap and arrow controls
+
+Copywriting rules
+
+Calm, practical, operator voice. No hype, no buzzwords.
+
+Short paragraphs, scannable bullets.
+
+Be specific about outcomes: fewer handoffs, fewer errors, faster turnaround, cleaner tracking, less retyping.
+
+Avoid vague phrasing like “we leverage”. Use direct statements like “We connect your tools so data moves automatically.”
+
+Write all copy for every page and make it coherent and consistent.
