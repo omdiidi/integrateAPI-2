@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { Check } from "lucide-react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 export default function About() {
   useEffect(() => {
@@ -33,6 +35,15 @@ export default function About() {
                 <p className="text-lg leading-relaxed">
                   We are Omid and Nick. While studying engineering, business, and information systems, we saw the same issue everywhere: strong local businesses running on paper, memory, and disconnected tools. Owners were working hard, but their systems were slowing them down.
                 </p>
+                <div className="mt-8 md:hidden flex justify-center">
+                  <Link href="/contact">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button size="lg" className="bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">
+                        Contact Us Directly
+                      </Button>
+                    </motion.div>
+                  </Link>
+                </div>
               </div>
             </div>
 
