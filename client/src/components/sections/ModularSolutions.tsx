@@ -4,7 +4,7 @@ import { ArrowRight, Box, Zap, Share2, Layers, Cpu, Cloud } from "lucide-react";
 
 export function ModularSolutions() {
   return (
-    <section className="-mt-72 md:mt-0 pt-0 pb-6 md:py-12 bg-slate-50 border-b border-slate-100 relative overflow-hidden snap-start z-20">
+    <section className="-mt-56 md:mt-0 pt-0 pb-6 md:py-12 bg-slate-50 border-b border-slate-100 relative overflow-hidden snap-start z-20">
       {/* Background Grid */}
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
 

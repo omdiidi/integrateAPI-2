@@ -74,10 +74,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="max-w-xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 border border-slate-200 text-xs font-medium text-slate-600 mb-3 md:mb-6 backdrop-blur-sm shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Now taking new projects - Q1 openings
-            </div>
+
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-primary leading-[1.1] mb-6 tracking-tight">
               Calm your business chaos with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">smart systems.</span>

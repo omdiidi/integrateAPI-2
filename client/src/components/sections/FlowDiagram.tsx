@@ -272,10 +272,10 @@ export function FlowDiagram() {
     const gridHeight = 3 * nodeSize + 2 * gap;
 
     return (
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full overflow-hidden py-4">
             <div
                 ref={containerRef}
-                className="relative"
+                className="scale-[0.80] sm:scale-100 origin-top relative"
                 style={{
                     width: gridWidth,
                     height: gridHeight + 60,
@@ -313,7 +313,7 @@ export function FlowDiagram() {
 
                     {/* Connector: Tag → In Store */}
                     <path
-                        d={`M ${nodeSize + gap + wideNodeWidth / 3} ${gap + nodeSize} 
+                        d={`M ${nodeSize + gap + wideNodeWidth / 3} ${nodeSize} 
                 L ${nodeSize + gap + nodeSize / 2} ${2 * (nodeSize + gap)}`}
                         fill="none"
                         stroke={ACCENT_COLOR}
@@ -324,7 +324,7 @@ export function FlowDiagram() {
 
                     {/* Connector: Tag → Online */}
                     <path
-                        d={`M ${nodeSize + gap + wideNodeWidth * 2 / 3} ${gap + nodeSize} 
+                        d={`M ${nodeSize + gap + wideNodeWidth * 2 / 3} ${nodeSize} 
                 L ${2 * (nodeSize + gap) + nodeSize / 2} ${2 * (nodeSize + gap)}`}
                         fill="none"
                         stroke={ACCENT_COLOR}
