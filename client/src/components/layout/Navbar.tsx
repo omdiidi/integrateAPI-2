@@ -30,7 +30,8 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
             <a className="text-2xl font-bold font-heading tracking-tight text-primary flex items-center gap-2">
@@ -39,7 +40,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-8">
             <div className="flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link key={link.name} href={link.href}>
@@ -60,14 +61,26 @@ export function Navbar() {
               </Button>
             </Link>
           </div>
+        </div>
 
-          {/* Mobile Nav - Horizontal links */}
-          <div className="md:hidden flex items-center gap-3 overflow-x-auto">
+        {/* Mobile Layout - Logo centered on top, links spread below */}
+        <div className="md:hidden flex flex-col gap-2">
+          {/* Logo centered */}
+          <div className="flex justify-center">
+            <Link href="/">
+              <a className="text-xl font-bold font-heading tracking-tight text-primary">
+                IntegrateAPI
+              </a>
+            </Link>
+          </div>
+
+          {/* Nav links spread evenly */}
+          <div className="flex justify-around items-center">
             {navLinks.map((link) => (
               <Link key={link.name} href={link.href}>
                 <a
                   className={cn(
-                    "text-xs font-medium whitespace-nowrap transition-colors hover:text-primary",
+                    "text-xs font-medium transition-colors hover:text-primary",
                     location === link.href ? "text-primary font-semibold" : "text-slate-600"
                   )}
                 >

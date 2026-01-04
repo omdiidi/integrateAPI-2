@@ -54,7 +54,7 @@ function FlipCard({
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-14 md:pt-20 overflow-hidden bg-[#f8fafc]">
+    <section className="relative min-h-[90vh] flex items-center pt-2 md:pt-20 overflow-hidden bg-[#f8fafc]">
       {/* Background Gradient */}
       <div className="absolute inset-0 hero-gradient z-0" />
 

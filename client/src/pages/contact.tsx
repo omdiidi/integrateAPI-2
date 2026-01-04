@@ -1,24 +1,10 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { CheckCircle2, Mail, MessageSquare, Phone, Copy, X, User } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+import { Copy, Mail, MessageSquare, Phone, User, X } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
 
 // Contact data - hidden from main page, only shown in modal
 const CONTACTS = [
@@ -39,13 +25,6 @@ const CONTACTS = [
     avatar: "/nicholas.png",
   },
 ];
-
-const formSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  company: z.string().min(2, "Company name is required"),
-  message: z.string().min(10, "Please provide a bit more detail"),
-});
 
 // Contact Modal Component
 interface ContactModalProps {
@@ -174,10 +153,9 @@ function ContactModal({ person, open, onClose }: ContactModalProps) {
 interface PersonCardProps {
   person: typeof CONTACTS[0];
   onContact: (person: typeof CONTACTS[0]) => void;
-  onEmail: () => void;
 }
 
-function PersonCard({ person, onContact, onEmail }: PersonCardProps) {
+function PersonCard({ person, onContact }: PersonCardProps) {
   return (
     <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-lg transition-all duration-300">
       <div className="flex items-center gap-5 mb-6">
@@ -201,7 +179,7 @@ function PersonCard({ person, onContact, onEmail }: PersonCardProps) {
       </div>
       <div className="flex gap-2">
         <button
-          onClick={onEmail}
+          onClick={() => onContact(person)}
           className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-[#007AFF] hover:bg-[#0062CC] text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-md"
         >
           <Mail className="w-4 h-4" />
@@ -227,47 +205,16 @@ function PersonCard({ person, onContact, onEmail }: PersonCardProps) {
 }
 
 export default function Contact() {
-  const { toast } = useToast();
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState<typeof CONTACTS[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      message: "",
-    },
-  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setTimeout(() => {
-      setIsSubmitted(true);
-      scrollToForm(); // Scroll back to top of form area? or just show success
-      toast({
-        title: "Message received",
-        description: "We'll get back to you within 24 hours.",
-      });
-    }, 1000);
-  }
-
   const handleContactClick = useCallback((person: typeof CONTACTS[0]) => {
     setSelectedPerson(person);
     setModalOpen(true);
-  }, []);
-
-  const scrollToForm = useCallback(() => {
-    const el = document.getElementById("contact-form");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
   }, []);
 
   return (
@@ -298,104 +245,9 @@ export default function Contact() {
                   key={person.id}
                   person={person}
                   onContact={handleContactClick}
-                  onEmail={scrollToForm}
                 />
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Existing Form Section */}
-        <section id="contact-form" className="py-12">
-          <div className="container mx-auto px-4 max-w-2xl">
-            <h2 className="text-xl font-semibold text-slate-700 text-center mb-8">
-              Or send us a message
-            </h2>
-            {isSubmitted ? (
-              <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-12 text-center animate-in fade-in zoom-in duration-500">
-                <div className="h-20 w-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={40} />
-                </div>
-                <h2 className="text-3xl font-bold text-primary mb-4">Message Sent!</h2>
-                <p className="text-lg text-slate-600 mb-8">
-                  Thanks for reaching out. We'll review your details and get back to you shortly to schedule your audit.
-                </p>
-                <Button onClick={() => setIsSubmitted(false)} variant="outline">
-                  Send another message
-                </Button>
-              </div>
-            ) : (
-              <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 md:p-10">
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Name</Label>
-                            <FormControl>
-                              <Input placeholder="Jane Doe" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Email</Label>
-                            <FormControl>
-                              <Input placeholder="jane@company.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <Label>Company</Label>
-                          <FormControl>
-                            <Input placeholder="Acme Inc." {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <Label>How can we help?</Label>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Tell us about your current workflow bottlenecks..."
-                              className="min-h-[120px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <Button type="submit" size="lg" className="w-full bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">
-                      Send Message
-                    </Button>
-                  </form>
-                </Form>
-              </div>
-            )}
           </div>
         </section>
       </motion.main>
