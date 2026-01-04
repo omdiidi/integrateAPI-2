@@ -118,8 +118,8 @@ export default function Demo() {
 
                         {/* Step 2: After entering details - Reference UI */}
                         <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
-                            <p className="font-medium text-slate-800">
-                                📋 After entering details, you'll see this panel:
+                            <p className="font-medium text-slate-800 mb-3">
+                                👉 After entering record details, you'll see this panel:
                             </p>
 
                             {/* Mock UI - Checkboxes */}
@@ -178,8 +178,8 @@ export default function Demo() {
                                 </div>
                             </div>
 
-                            <p className="text-sm text-slate-500">
-                                Check the boxes to choose where this item appears. Click <strong>Print</strong> to create a QR label.
+                            <p className="text-sm text-slate-500 mt-3">
+                                Users choose where the record is listed: <strong>In Store</strong> (in-store database only), <strong>Online</strong> (also listed on your website), or <strong>Network</strong> (shared database with other stores). <strong>Print</strong> creates a QR label.
                             </p>
                         </div>
 
@@ -192,11 +192,11 @@ export default function Demo() {
                             </div>
                             <div className="flex items-center gap-3 text-sm text-slate-600">
                                 <span className="w-5 h-5 rounded-full bg-[#5856D6] text-white flex items-center justify-center text-xs font-bold">2</span>
-                                <span>Online → choose where it appears</span>
+                                <span>Fill out info → choose where to list record (in store, online, network)</span>
                             </div>
                             <div className="flex items-center gap-3 text-sm text-slate-600">
                                 <span className="w-5 h-5 rounded-full bg-[#34C759] text-white flex items-center justify-center text-xs font-bold">3</span>
-                                <span>Sold → scan QR or mark sold, removed automatically</span>
+                                <span>Sold → scan QR or mark sold, removed automatically from system</span>
                             </div>
                         </div>
 

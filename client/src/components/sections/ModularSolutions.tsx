@@ -13,7 +13,7 @@ export function ModularSolutions() {
 
           {/* Left Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-6 -mt-16">
               Your tools should work together, not get in your way.
             </h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
