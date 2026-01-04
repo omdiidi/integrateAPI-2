@@ -9,20 +9,20 @@ import { useToast } from "@/hooks/use-toast";
 // Contact data - hidden from main page, only shown in modal
 const CONTACTS = [
   {
-    id: "omid",
-    name: "Omid Zahrai",
-    email: "zomid717@gmail.com",
-    phone: "4254421742",
-    phoneFormatted: "(425) 442-1742",
-    avatar: "/omid.png",
-  },
-  {
     id: "nicholas",
     name: "Nicholas Pardon",
     email: "nkpardon8@gmail.com",
     phone: "4252293497",
     phoneFormatted: "(425) 229-3497",
     avatar: "/nicholas.png",
+  },
+  {
+    id: "omid",
+    name: "Omid Zahrai",
+    email: "zomid717@gmail.com",
+    phone: "4254421742",
+    phoneFormatted: "(425) 442-1742",
+    avatar: "/omid.png",
   },
 ];
 
