@@ -4,7 +4,7 @@ import { ArrowRight, Box, Zap, Share2, Layers, Cpu, Cloud } from "lucide-react";
 
 export function ModularSolutions() {
   return (
-    <section className="py-6 md:py-12 bg-slate-50 border-b border-slate-100 relative overflow-hidden snap-start">
+    <section className="-mt-24 md:mt-0 py-6 md:py-12 bg-slate-50 border-b border-slate-100 relative overflow-hidden snap-start z-20">
       {/* Background Grid */}
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
 
@@ -12,7 +12,7 @@ export function ModularSolutions() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left Content */}
-          <div className="-mt-16 md:mt-0">
+          <div>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-6">
               Your tools should work together, not get in your way.
             </h2>

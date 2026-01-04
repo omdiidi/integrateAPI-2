@@ -54,7 +54,7 @@ function FlipCard({
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-2 md:pt-20 overflow-hidden bg-[#f8fafc]">
+    <section className="relative min-h-[90vh] flex items-start md:items-center pt-28 md:pt-20 overflow-hidden bg-[#f8fafc]">
       {/* Background Gradient */}
       <div className="absolute inset-0 hero-gradient z-0" />
 
@@ -72,7 +72,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl -mt-12 md:mt-0"
+            className="max-w-xl"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 border border-slate-200 text-xs font-medium text-slate-600 mb-3 md:mb-6 backdrop-blur-sm shadow-sm">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
