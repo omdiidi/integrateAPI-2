@@ -29,6 +29,15 @@ export default function HowItWorks() {
             <p className="text-xl text-slate-600 leading-relaxed">
               We don't disrupt your business. We map how you already work, then build the systems to support it.
             </p>
+            <div className="mt-8 md:hidden flex justify-center">
+              <Link href="/contact">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" className="bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">
+                    Contact Us Directly
+                  </Button>
+                </motion.div>
+              </Link>
+            </div>
           </div>
         </section>
 
