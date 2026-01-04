@@ -180,7 +180,7 @@ function Tooltip({ node, anchorRect, containerRect, onClose, isPinned }: Tooltip
         <div
             ref={ref}
             role="tooltip"
-            className="absolute z-50 bg-white rounded-xl shadow-xl border border-slate-200 p-4 w-56 pointer-events-auto"
+            className="absolute z-[100] bg-white rounded-xl shadow-xl border border-slate-200 p-4 w-56 pointer-events-auto"
             style={{
                 left,
                 top,
@@ -272,7 +272,7 @@ export function FlowDiagram() {
     const gridHeight = 3 * nodeSize + 2 * gap;
 
     return (
-        <div className="flex justify-center w-full overflow-hidden py-4">
+        <div className="flex justify-center w-full py-4">
             <div
                 ref={containerRef}
                 className="scale-[0.80] sm:scale-100 origin-top relative"

@@ -80,7 +80,7 @@ export default function Services() {
         <section className="py-16 bg-slate-50 border-y border-slate-100">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
+              <div className="-mt-12 md:mt-0">
                 <div className="inline-flex items-center gap-2 text-accent font-semibold text-sm tracking-wide uppercase mb-4">
                   <Cable size={18} />
                   Integrations
