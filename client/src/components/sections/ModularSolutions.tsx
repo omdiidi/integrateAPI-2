@@ -12,8 +12,8 @@ export function ModularSolutions() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left Content */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-6 -mt-16">
+          <div className="-mt-16 md:mt-0">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-6">
               Your tools should work together, not get in your way.
             </h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
