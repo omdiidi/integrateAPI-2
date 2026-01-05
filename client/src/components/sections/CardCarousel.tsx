@@ -44,7 +44,7 @@ export function CardCarousel() {
   ];
 
   return (
-    <section className="py-12 bg-white overflow-hidden">
+    <section className="py-8 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
           <div className="max-w-2xl">
