@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Search, Map, Wrench, GraduationCap, CheckCircle2 } from "lucide-react";
+import { Search, Map, Wrench, GraduationCap, CheckCircle2, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HowItWorks() {
@@ -45,16 +45,19 @@ export default function HowItWorks() {
           <div className="container mx-auto px-4 md:px-6">
             <Tabs defaultValue="audit" className="w-full max-w-4xl mx-auto">
               <div className="flex justify-center mb-12">
-                <TabsList className="bg-slate-100 p-1 rounded-full border border-slate-200">
+                <TabsList className="bg-slate-100 p-1 rounded-full border border-slate-200 flex items-center">
                   <TabsTrigger value="audit" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     1. Audit
                   </TabsTrigger>
+                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1" />
                   <TabsTrigger value="map" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     2. Map
                   </TabsTrigger>
+                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1" />
                   <TabsTrigger value="build" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     3. Build
                   </TabsTrigger>
+                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1" />
                   <TabsTrigger value="train" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     4. Train
                   </TabsTrigger>
