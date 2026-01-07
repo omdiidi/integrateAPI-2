@@ -12,6 +12,26 @@ export default function HowItWorks() {
     window.scrollTo(0, 0);
   }, []);
 
+  const steps = ["audit", "map", "build", "train"];
+  const [activeTab, setActiveTab] = useState("audit");
+
+  const handlePrev = () => {
+    const currentIndex = steps.indexOf(activeTab);
+    if (currentIndex > 0) {
+      setActiveTab(steps[currentIndex - 1]);
+    }
+  };
+
+  const handleNext = () => {
+    const currentIndex = steps.indexOf(activeTab);
+    if (currentIndex < steps.length - 1) {
+      setActiveTab(steps[currentIndex + 1]);
+    }
+  };
+
+  const isFirst = activeTab === steps[0];
+  const isLast = activeTab === steps[steps.length - 1];
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -43,25 +63,51 @@ export default function HowItWorks() {
 
         <section className="pt-6 pb-12">
           <div className="container mx-auto px-4 md:px-6">
-            <Tabs defaultValue="audit" className="w-full max-w-4xl mx-auto">
-              <div className="flex justify-center mb-12">
-                <TabsList className="bg-slate-100 p-1 rounded-full border border-slate-200 flex items-center">
-                  <TabsTrigger value="audit" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
+              <div className="flex items-center justify-center gap-2 md:gap-4 mb-12">
+                {/* Left Arrow */}
+                <button
+                  onClick={handlePrev}
+                  disabled={isFirst}
+                  className={`p-2 rounded-full border transition-all duration-200 ${isFirst
+                      ? "border-slate-100 text-slate-300 cursor-not-allowed opacity-50"
+                      : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-primary active:scale-95"
+                    }`}
+                  aria-label="Previous step"
+                >
+                  <ChevronRight className="w-6 h-6 rotate-180" />
+                </button>
+
+                <TabsList className="bg-slate-100 p-1 rounded-full border border-slate-200 flex items-center overflow-x-auto max-w-[calc(100vw-120px)] no-scrollbar">
+                  <TabsTrigger value="audit" className="rounded-full px-4 md:px-6 py-2 whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     1. Audit
                   </TabsTrigger>
-                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1" />
-                  <TabsTrigger value="map" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1 flex-shrink-0 hidden md:block" />
+                  <TabsTrigger value="map" className="rounded-full px-4 md:px-6 py-2 whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     2. Map
                   </TabsTrigger>
-                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1" />
-                  <TabsTrigger value="build" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1 flex-shrink-0 hidden md:block" />
+                  <TabsTrigger value="build" className="rounded-full px-4 md:px-6 py-2 whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     3. Build
                   </TabsTrigger>
-                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1" />
-                  <TabsTrigger value="train" className="rounded-full px-6 py-2 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
+                  <ChevronRight className="w-4 h-4 text-slate-400 mx-1 flex-shrink-0 hidden md:block" />
+                  <TabsTrigger value="train" className="rounded-full px-4 md:px-6 py-2 whitespace-nowrap data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">
                     4. Train
                   </TabsTrigger>
                 </TabsList>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={handleNext}
+                  disabled={isLast}
+                  className={`p-2 rounded-full border transition-all duration-200 ${isLast
+                      ? "border-slate-100 text-slate-300 cursor-not-allowed opacity-50"
+                      : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-primary active:scale-95"
+                    }`}
+                  aria-label="Next step"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
               </div>
 
               <div className="bg-white rounded-2xl border border-slate-100 shadow-xl p-8 md:p-12 min-h-[400px]">
