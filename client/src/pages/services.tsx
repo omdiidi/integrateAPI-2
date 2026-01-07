@@ -23,26 +23,7 @@ export default function Services() {
         transition={{ duration: 0.6 }}
         className="pt-20"
       >
-        {/* Header */}
-        <section className="pt-10 pb-4 bg-slate-50">
-          <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-heading text-primary mb-6">
-              Systems built around how your team actually works.
-            </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              We design and deploy custom internal systems that replace scattered spreadsheets, notes, and manual handoffs with a simple operations hub your team actually uses. Then we connect existing tools so data stays synced automatically.
-            </p>
-            <div className="mt-8 md:hidden flex justify-center">
-              <Link href="/contact">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">
-                    Contact Us Directly
-                  </Button>
-                </motion.div>
-              </Link>
-            </div>
-          </div>
-        </section>
+
 
         {/* What We Deliver - New Interactive Section */}
         <WhatWeDeliver />

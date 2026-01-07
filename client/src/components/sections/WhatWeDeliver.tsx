@@ -180,9 +180,9 @@ export function WhatWeDeliver() {
                 {/* Header Row */}
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
                     <div className="max-w-2xl">
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-4">
+                        <h1 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-4">
                             What We Deliver
-                        </h2>
+                        </h1>
                         <p className="text-lg text-slate-600 leading-relaxed">
                             We connect your website, POS, and inventory tracking into one workflow so listings, sales, and records stay accurate without extra admin work.
                         </p>
