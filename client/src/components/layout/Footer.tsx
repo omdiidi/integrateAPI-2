@@ -24,6 +24,7 @@ export function Footer() {
             <ul className="space-y-1 md:space-y-2 text-sm text-slate-500">
               <li><Link href="/about"><a className="hover:text-accent transition-colors">About</a></Link></li>
               <li><Link href="/contact"><a className="hover:text-accent transition-colors">Contact</a></Link></li>
+              <li><Link href="/ai4u"><a className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#DC2626] text-white text-xs font-medium rounded hover:bg-[#B91C1C] transition-colors">AI4U</a></Link></li>
             </ul>
           </div>
 
