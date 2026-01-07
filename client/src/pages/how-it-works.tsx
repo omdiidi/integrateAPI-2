@@ -81,13 +81,12 @@ export default function HowItWorks() {
                         <li className="text-sm font-medium text-slate-700">• Define the highest impact custom system to save time immediately</li>
                       </ul>
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-100 h-64 flex items-center justify-center">
-                      {/* Abstract Representation */}
-                      <div className="space-y-2 w-full max-w-xs">
-                        <div className="h-2 w-full bg-slate-200 rounded animate-pulse" />
-                        <div className="h-2 w-2/3 bg-slate-200 rounded animate-pulse delay-75" />
-                        <div className="h-2 w-3/4 bg-slate-200 rounded animate-pulse delay-150" />
-                      </div>
+                    <div className="bg-slate-50 rounded-xl border border-slate-100 h-64 overflow-hidden shadow-sm">
+                      <img
+                        src="/audit-store-workflow.jpg"
+                        alt="Deep dive operations audit in a record store"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                   </div>
                 </TabsContent>
