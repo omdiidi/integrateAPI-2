@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { FlowDiagram } from "@/components/sections/FlowDiagram";
 import { DashboardMock } from "@/components/sections/DashboardMock";
+import { WhatWeDeliver } from "@/components/sections/WhatWeDeliver";
 
 export default function Services() {
   useEffect(() => {
@@ -42,6 +43,9 @@ export default function Services() {
             </div>
           </div>
         </section>
+
+        {/* What We Deliver - New Interactive Section */}
+        <WhatWeDeliver />
 
         {/* Service 1: Workflow Automation with Flow Diagram */}
         <section className="py-16">
