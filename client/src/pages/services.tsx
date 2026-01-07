@@ -26,10 +26,10 @@ export default function Services() {
         <section className="py-10 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold font-heading text-primary mb-6">
-              Systems that run themselves.
+              Systems built around how your team actually works.
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              We don't just "consult." We build and deploy the actual digital infrastructure your team needs to operate without friction.
+              We design and deploy custom internal systems that replace scattered spreadsheets, notes, and manual handoffs with a simple operations hub your team actually uses. Then we connect existing tools so data stays synced automatically.
             </p>
             <div className="mt-8 md:hidden flex justify-center">
               <Link href="/contact">
@@ -53,31 +53,35 @@ export default function Services() {
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center gap-2 text-accent font-semibold text-sm tracking-wide uppercase mb-4">
                   <Workflow size={18} />
-                  Workflow Automation
+                  Core Systems
                 </div>
                 <h2 className="text-3xl font-bold font-heading text-primary mb-6">
-                  Stop passing paper.
+                  One home for jobs, customers, and inventory.
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  We turn manual checklists, paper forms, and email chains into digital workflows that track themselves.
+                  We build the operational backbone that keeps work organized, owned, and easy to track.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-slate-700">
                     <CheckCircle2 className="text-accent h-5 w-5" />
-                    Digital intake & onboarding forms
+                    Operations hub that centralizes jobs, customers, inventory, and status
                   </li>
                   <li className="flex items-center gap-3 text-slate-700">
                     <CheckCircle2 className="text-accent h-5 w-5" />
-                    Auto-assigned tasks & reminders
+                    Inventory tracking with real time stock, item records, alerts, and barcode or QR scanning
                   </li>
                   <li className="flex items-center gap-3 text-slate-700">
                     <CheckCircle2 className="text-accent h-5 w-5" />
-                    Approval routing (Quote → Invoice)
+                    Job tracking boards for queue, in progress, waiting, complete, with owners and handoffs
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700">
+                    <CheckCircle2 className="text-accent h-5 w-5" />
+                    Customer CRM with history, attachments, and automated follow ups
                   </li>
                 </ul>
                 <Link href="/contact">
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button className="bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">Get a workflow audit</Button>
+                    <Button className="bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">See what we build</Button>
                   </motion.div>
                 </Link>
               </div>
@@ -92,26 +96,30 @@ export default function Services() {
               <div className="-mt-12 md:mt-0">
                 <div className="inline-flex items-center gap-2 text-accent font-semibold text-sm tracking-wide uppercase mb-4">
                   <Cable size={18} />
-                  Integrations
+                  Integrations and Automations
                 </div>
                 <h2 className="text-3xl font-bold font-heading text-primary mb-6">
-                  Connect your disconnected tools.
+                  Stop double entry and copy pasting.
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  Your CRM should talk to your accounting software. We build the bridges so you don't have to copy-paste data.
+                  We connect POS, accounting, e commerce, scheduling, and messaging so workflows run automatically and records stay accurate.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-slate-700">
                     <CheckCircle2 className="text-accent h-5 w-5" />
-                    Sync POS/E-comm to QuickBooks/Xero
+                    Integrations between POS, accounting, e commerce, scheduling, email, SMS, and spreadsheets
                   </li>
                   <li className="flex items-center gap-3 text-slate-700">
                     <CheckCircle2 className="text-accent h-5 w-5" />
-                    Automate customer notifications
+                    Automations that sync data, trigger reminders, generate reports, and keep records accurate
                   </li>
                   <li className="flex items-center gap-3 text-slate-700">
                     <CheckCircle2 className="text-accent h-5 w-5" />
-                    Centralized client records
+                    Digital intake forms and checklists that create tasks, assign owners, and track completion
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700">
+                    <CheckCircle2 className="text-accent h-5 w-5" />
+                    Invoicing workflows that generate consistent invoices, send them, and log everything
                   </li>
                 </ul>
                 <Link href="/contact">
@@ -150,14 +158,32 @@ export default function Services() {
               <div className="order-1 lg:order-2">
                 <div className="inline-flex items-center gap-2 text-accent font-semibold text-sm tracking-wide uppercase mb-4">
                   <Database size={18} />
-                  Operational Dashboards
+                  Dashboards and Reliability
                 </div>
                 <h2 className="text-3xl font-bold font-heading text-primary mb-6">
-                  Visibility without the busywork.
+                  Real time clarity without chasing updates.
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  See exactly where every job, order, or patient is in your process at a glance. No more asking "what's the status of X?"
+                  We add dashboards and safeguards so the system stays clear, stable, and scalable as you grow.
                 </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3 text-slate-700">
+                    <CheckCircle2 className="text-accent h-5 w-5" />
+                    Dashboards for live workload, sales, capacity, bottlenecks, and trends
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700">
+                    <CheckCircle2 className="text-accent h-5 w-5" />
+                    Activity logs and audit trails showing who changed what and when
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700">
+                    <CheckCircle2 className="text-accent h-5 w-5" />
+                    Reliability work like permissions, error handling, and clean data structure so workflows do not break as you grow
+                  </li>
+                  <li className="flex items-center gap-3 text-slate-700">
+                    <CheckCircle2 className="text-accent h-5 w-5" />
+                    Hosting and deployment setup, plus maintenance and iterative improvements
+                  </li>
+                </ul>
                 <Link href="/contact">
                   <Button>See example dashboards</Button>
                 </Link>
