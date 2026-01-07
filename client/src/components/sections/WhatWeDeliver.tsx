@@ -189,7 +189,7 @@ export function WhatWeDeliver() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={sectionVariants}
-            className="pt-6 pb-16 md:pt-10 md:pb-20 bg-white"
+            className="pt-6 pb-10 md:pt-10 md:pb-12 bg-white"
         >
             <div className="container mx-auto px-4 md:px-6">
                 {/* Header Row */}
@@ -339,7 +339,7 @@ export function WhatWeDeliver() {
                 </div>
 
                 {/* Contact Us Button */}
-                <div className="mt-12 text-center">
+                <div className="mt-6 text-center">
                     <Link href="/contact">
                         <Button size="lg" className="bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">
                             Contact Us
