@@ -159,13 +159,12 @@ export default function HowItWorks() {
                         <li className="text-sm font-medium text-slate-700">• Standby support and maintenance to keep everything running smooth and efficient</li>
                       </ul>
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-100 h-64 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 mb-4">
-                          <CheckCircle2 size={32} />
-                        </div>
-                        <div className="font-semibold text-slate-700">System Live</div>
-                      </div>
+                    <div className="bg-slate-50 rounded-xl border border-slate-100 h-64 overflow-hidden shadow-sm">
+                      <img
+                        src="/train-handoff-support.jpg"
+                        alt="Training the team and handing off the system"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                   </div>
                 </TabsContent>
