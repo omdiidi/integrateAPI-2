@@ -142,7 +142,7 @@ export function WhatWeDeliver() {
         if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
         hoverTimeoutRef.current = setTimeout(() => {
             setActiveId(id);
-        }, 1000);
+        }, 500);
     };
 
     const handleMouseLeave = () => {
