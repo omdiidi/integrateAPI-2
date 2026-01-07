@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -136,6 +136,21 @@ const deliverables = [
 export function WhatWeDeliver() {
     const [activeId, setActiveId] = useState(deliverables[0].id);
     const activeDeliverable = deliverables.find(d => d.id === activeId)!;
+    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseEnter = (id: string) => {
+        if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+        hoverTimeoutRef.current = setTimeout(() => {
+            setActiveId(id);
+        }, 1000);
+    };
+
+    const handleMouseLeave = () => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = null;
+        }
+    };
 
     // Check for reduced motion preference
     const prefersReducedMotion = typeof window !== 'undefined'
@@ -178,8 +193,8 @@ export function WhatWeDeliver() {
         >
             <div className="container mx-auto px-4 md:px-6">
                 {/* Header Row */}
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-                    <div className="max-w-2xl">
+                <div className="flex flex-col items-center text-center gap-6 mb-12">
+                    <div className="max-w-3xl">
                         <h1 className="text-3xl md:text-4xl font-bold font-heading text-primary mb-4">
                             What We Deliver
                         </h1>
@@ -189,7 +204,7 @@ export function WhatWeDeliver() {
                     </div>
 
                     {/* Buttons - stacked on mobile, inline on desktop */}
-                    <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <Link href="/demo">
                             <Button className="w-full sm:w-auto bg-[#007AFF] text-white hover:bg-[#0062CC] shadow-lg hover:shadow-xl transition-all duration-300">
                                 See a Demo
@@ -217,6 +232,8 @@ export function WhatWeDeliver() {
                                     key={item.id}
                                     layout
                                     onClick={() => setActiveId(item.id)}
+                                    onMouseEnter={() => handleMouseEnter(item.id)}
+                                    onMouseLeave={handleMouseLeave}
                                     className={`w-full text-left p-4 rounded-xl border transition-all duration-300 group ${isActive
                                         ? "bg-white border-[#007AFF] shadow-lg"
                                         : "bg-slate-50 border-transparent hover:bg-white hover:border-slate-200 hover:shadow-md"
