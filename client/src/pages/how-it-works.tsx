@@ -133,12 +133,12 @@ export default function HowItWorks() {
                         <li className="text-sm font-medium text-slate-700">• Test real workflows and edge cases so it saves time without breaking</li>
                       </ul>
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-100 h-64 flex items-center justify-center">
-                      <div className="flex gap-2">
-                        <div className="h-16 w-16 bg-white rounded shadow-sm border border-slate-200" />
-                        <div className="h-16 w-16 bg-white rounded shadow-sm border border-slate-200" />
-                        <div className="h-16 w-16 bg-white rounded shadow-sm border border-slate-200" />
-                      </div>
+                    <div className="bg-slate-50 rounded-xl border border-slate-100 h-64 overflow-hidden shadow-sm">
+                      <img
+                        src="/build-system-coding.jpg"
+                        alt="Building and coding the custom system"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                   </div>
                 </TabsContent>
