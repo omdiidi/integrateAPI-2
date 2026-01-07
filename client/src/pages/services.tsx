@@ -24,7 +24,7 @@ export default function Services() {
         className="pt-20"
       >
         {/* Header */}
-        <section className="py-10 bg-slate-50">
+        <section className="pt-10 pb-4 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold font-heading text-primary mb-6">
               Systems built around how your team actually works.
