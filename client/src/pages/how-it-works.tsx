@@ -21,7 +21,7 @@ export default function HowItWorks() {
         transition={{ duration: 0.6 }}
         className="pt-20"
       >
-        <section className="py-10 bg-slate-50">
+        <section className="pt-8 pb-6 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold font-heading text-primary mb-6">
               Our Process
@@ -41,7 +41,7 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="py-12">
+        <section className="pt-6 pb-12">
           <div className="container mx-auto px-4 md:px-6">
             <Tabs defaultValue="audit" className="w-full max-w-4xl mx-auto">
               <div className="flex justify-center mb-12">
