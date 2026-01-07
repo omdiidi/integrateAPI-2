@@ -215,6 +215,7 @@ export function WhatWeDeliver() {
                             return (
                                 <motion.button
                                     key={item.id}
+                                    layout
                                     onClick={() => setActiveId(item.id)}
                                     className={`w-full text-left p-4 rounded-xl border transition-all duration-300 group ${isActive
                                         ? "bg-white border-[#007AFF] shadow-lg"
