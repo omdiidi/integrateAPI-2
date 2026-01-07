@@ -17,29 +17,45 @@ interface FeatureProps {
 export function FeatureSplit() {
   const features: FeatureProps[] = [
     {
-      title: "Workflow Digitization",
-      description: "Stop passing physical papers around. We turn your checklists, forms, and approval processes into digital workflows that track themselves.",
-      label: "Eliminate Paperwork",
+      title: "Core Systems We Build",
+      description: "We build custom internal systems that replace scattered spreadsheets, notes, and manual handoffs with one simple operations hub your team actually uses. Everything is designed around how the business runs day to day.",
+      label: "Services",
       icon: <FileText size={20} />,
-      points: ["Digital intake forms", "Auto-assigned tasks", "Instant status updates"],
+      points: [
+        "Operations hub that centralizes jobs, customers, inventory, and status",
+        "Inventory tracking with real time stock, item records, alerts, and barcode or QR scanning",
+        "Job tracking boards for queue, in progress, waiting, complete, with owners and handoffs",
+        "Customer CRM with history, attachments, and automated follow ups",
+        "Digital intake forms and checklists that create tasks, assign owners, and track completion",
+        "Invoicing workflows that generate consistent invoices, send them, and log everything",
+        "Label and printing flows for physical operations when items need to be tracked in the real world",
+        "Activity logs and audit trails showing who changed what and when"
+      ],
       align: "left",
       index: 0
     },
     {
-      title: "Tool Integrations",
-      description: "Your scheduling tool should talk to your CRM, and your CRM should talk to your invoicing. We bridge the gaps so you don't have to copy-paste data.",
-      label: "Connect Everything",
+      title: "Integrations, Automations, Dashboards, and Support",
+      description: "We connect the tools already in use so teams stop copy pasting, double entering, and chasing updates. Then we add dashboards so the owner can see what matters without digging.",
+      label: "Services",
       icon: <Settings size={20} />,
-      points: ["Sync POS with Accounting", "Automate customer emails", "Centralized client records"],
+      points: [
+        "Integrations between POS, accounting, e commerce, scheduling, email, SMS, and spreadsheets",
+        "Automations that sync data, trigger reminders, generate reports, and keep records accurate",
+        "Dashboards for live workload, sales, capacity, bottlenecks, and trends",
+        "Reliability work like permissions, error handling, and clean data structure so workflows do not break as the business grows",
+        "Hosting and deployment setup, plus maintenance and iterative improvements",
+        "Onboarding, training, and refinements based on real team feedback"
+      ],
       align: "right",
       index: 1
     },
     {
-      title: "Operational Dashboards",
-      description: "Get visibility without the busywork. See exactly where every job, order, or patient is in your process at a glance.",
-      label: "Real-time Clarity",
+      title: "What We Built for a Record Store Workflow",
+      description: "We built a connected inventory system that ties together three things: a backend inventory dashboard, an in store QR label flow, and a live online storefront. In the backend, staff can add a record once, attach the key details, and choose exactly where it should be listed. The same item record drives all channels, so there is no re entering data across platforms. We set up QR label printing directly from the dashboard so each record gets a scannable sticker tied to its inventory page. That lets staff pull up an item instantly at the counter, confirm details, and move it through the workflow without searching manually. We also built the sold flow so it stays consistent across systems. When a record sells in store, staff can scan the QR or find it in the POS, mark it sold, and the system automatically de lists that item everywhere it was posted to prevent double selling. The storefront stays synced in real time because it pulls directly from the same inventory database, and every change is logged so the owner can see who updated what and when.",
+      label: "Services",
       icon: <Database size={20} />,
-      points: ["Live project tracking", "Revenue forecasting", "Team capacity planning"],
+      points: [],
       align: "left",
       index: 2
     }
