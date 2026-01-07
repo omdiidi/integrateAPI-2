@@ -70,8 +70,8 @@ export default function HowItWorks() {
                   onClick={handlePrev}
                   disabled={isFirst}
                   className={`p-2 rounded-full border transition-all duration-200 ${isFirst
-                      ? "border-slate-100 text-slate-300 cursor-not-allowed opacity-50"
-                      : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-primary active:scale-95"
+                    ? "border-slate-100 text-slate-300 cursor-not-allowed opacity-50"
+                    : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-primary active:scale-95"
                     }`}
                   aria-label="Previous step"
                 >
@@ -101,8 +101,8 @@ export default function HowItWorks() {
                   onClick={handleNext}
                   disabled={isLast}
                   className={`p-2 rounded-full border transition-all duration-200 ${isLast
-                      ? "border-slate-100 text-slate-300 cursor-not-allowed opacity-50"
-                      : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-primary active:scale-95"
+                    ? "border-slate-100 text-slate-300 cursor-not-allowed opacity-50"
+                    : "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-primary active:scale-95"
                     }`}
                   aria-label="Next step"
                 >
@@ -114,9 +114,6 @@ export default function HowItWorks() {
                 <TabsContent value="audit" className="mt-0 animate-in fade-in duration-500">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <div className="h-12 w-12 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-6">
-                        <Search size={24} />
-                      </div>
                       <h3 className="text-2xl font-bold text-primary mb-4">Deep Dive Operations Audit</h3>
                       <p className="text-slate-600 mb-6 leading-relaxed">
                         We meet with you and your team to learn exactly how your operation runs day to day. We watch the real workflow, track where repetitive tasks and mistakes happen, and pinpoint the time drains that slow everything down. Then we design a custom solution that removes busywork, saves hours each week, and fits how you already run the business.
@@ -140,9 +137,6 @@ export default function HowItWorks() {
                 <TabsContent value="map" className="mt-0 animate-in fade-in duration-500">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <div className="h-12 w-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 mb-6">
-                        <Map size={24} />
-                      </div>
                       <h3 className="text-2xl font-bold text-primary mb-4">Visualize the System Before We Build</h3>
                       <p className="text-slate-600 mb-6 leading-relaxed">
                         Before we write code, we make the plan real. We demo and visualize the exact tools we will create, explain how they will work in your workflow, and show how the new system saves time by removing manual steps. We work back and forth with you to dial it in until it matches how you want to run the business, simple, clean, and custom.
@@ -166,9 +160,6 @@ export default function HowItWorks() {
                 <TabsContent value="build" className="mt-0 animate-in fade-in duration-500">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <div className="h-12 w-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-700 mb-6">
-                        <Wrench size={24} />
-                      </div>
                       <h3 className="text-2xl font-bold text-primary mb-4">Build and Test the System End to End</h3>
                       <p className="text-slate-600 mb-6 leading-relaxed">
                         This is the heavy work. We build the system itself, coding the tools, connecting your software, and setting up automations that eliminate manual follow ups and duplicate entry. We test everything on real scenarios to make sure it runs reliably before it touches your live operation.
@@ -192,9 +183,6 @@ export default function HowItWorks() {
                 <TabsContent value="train" className="mt-0 animate-in fade-in duration-500">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <div className="h-12 w-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-700 mb-6">
-                        <GraduationCap size={24} />
-                      </div>
                       <h3 className="text-2xl font-bold text-primary mb-4">Handoff, Migration, and Ongoing Support</h3>
                       <p className="text-slate-600 mb-6 leading-relaxed">
                         We hand the system over cleanly and make adoption simple. The developers who built it train your team, help migrate your process, and stay available to ensure the time savings actually stick in daily operations. We also provide maintenance so the system stays reliable as you grow.
