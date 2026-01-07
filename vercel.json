@@ -5,6 +5,40 @@
             "destination": "/api/:path*"
         },
         {
+            "source": "/ai4u-embed/:path*",
+            "destination": "/ai4u-embed/:path*"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "integrateapi.ai"
+                }
+            ]
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.integrateapi.ai"
+                }
+            ]
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/ai4u-embed/index.html",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ai4u.integrateapi.ai"
+                }
+            ]
+        },
+        {
             "source": "/(.*)",
             "destination": "/index.html"
         }

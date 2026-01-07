@@ -5,6 +5,7 @@ import viteConfig from "../vite.config";
 import fs from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
+import express from "express";
 
 const viteLogger = createLogger();
 
@@ -29,10 +30,19 @@ export async function setupVite(server: Server, app: Express) {
     appType: "custom",
   });
 
+  // Serve AI4U embed static files BEFORE Vite middleware intercepts
+  const ai4uEmbedPath = path.resolve(import.meta.dirname, "..", "client", "public", "ai4u-embed");
+  app.use("/ai4u-embed", express.static(ai4uEmbedPath));
+
   app.use(vite.middlewares);
 
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
+
+    // Skip ai4u-embed static files (handled above)
+    if (url.startsWith("/ai4u-embed")) {
+      return next();
+    }
 
     try {
       const clientTemplate = path.resolve(

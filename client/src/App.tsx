@@ -12,6 +12,7 @@ import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import Login from "@/pages/login";
 import Demo from "@/pages/demo";
+import AI4U from "@/pages/ai4u";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />
       <Route path="/demo" component={Demo} />
+      <Route path="/ai4u" component={AI4U} />
       <Route component={NotFound} />
     </Switch>
   );

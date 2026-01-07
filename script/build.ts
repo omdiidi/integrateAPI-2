@@ -1,6 +1,10 @@
 import { build as esbuild } from "esbuild";
 import { build as viteBuild } from "vite";
 import { rm, readFile } from "fs/promises";
+import { exec } from "child_process";
+import { promisify } from "util";
+
+const execAsync = promisify(exec);
 
 // server deps to bundle to reduce openat(2) syscalls
 // which helps cold start times
@@ -34,6 +38,17 @@ const allowlist = [
 
 async function buildAll() {
   await rm("dist", { recursive: true, force: true });
+
+  // Build AI4U first (outputs to client/public/ai4u-embed)
+  console.log("building AI4U embed...");
+  try {
+    await execAsync("npm install && npx vite build --config ai4u-vite.config.ts", {
+      cwd: "apps/ai4u-source",
+    });
+    console.log("AI4U embed built successfully");
+  } catch (error) {
+    console.warn("AI4U build skipped (source not found or build failed):", error);
+  }
 
   console.log("building client...");
   await viteBuild();
