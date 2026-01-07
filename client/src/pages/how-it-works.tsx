@@ -107,12 +107,12 @@ export default function HowItWorks() {
                         <li className="text-sm font-medium text-slate-700">• Confirm what gets tracked, who updates it, and what updates automatically to reduce admin time</li>
                       </ul>
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-6 border border-slate-100 h-64 flex items-center justify-center relative overflow-hidden">
-                      <svg className="absolute inset-0 w-full h-full text-slate-300" stroke="currentColor" fill="none" strokeWidth="2">
-                        <path d="M50,150 C150,50 250,250 350,150" strokeDasharray="5 5" />
-                        <circle cx="50" cy="150" r="4" fill="currentColor" />
-                        <circle cx="350" cy="150" r="4" fill="currentColor" />
-                      </svg>
+                    <div className="bg-slate-50 rounded-xl border border-slate-100 h-64 overflow-hidden shadow-sm">
+                      <img
+                        src="/map-workflow-visualization.jpg"
+                        alt="Visualizing the system workflow and tools"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                   </div>
                 </TabsContent>
