@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback } from "react";
-import { Disc3, Camera, ImageOff, Sparkles, MapPin, Printer, Save, Minus, Plus, Info, ExternalLink, Play } from "lucide-react";
+import { Disc3, Camera, ImageOff, Sparkles, MapPin, Printer, Save, Minus, Plus, Info, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
 const DEMO_URL = "https://vinyl-vault-backend--u1599608.replit.app/";
@@ -289,7 +289,6 @@ export default function Demo() {
                                 onClick={handleViewDemo}
                                 className="w-full bg-[#007AFF] hover:bg-[#0062CC] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] h-16 text-xl font-bold rounded-xl"
                             >
-                                <ExternalLink className="w-6 h-6 mr-3" />
                                 View Demo
                             </Button>
                         </motion.div>
@@ -305,10 +304,9 @@ export default function Demo() {
                                 href="/services"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#007AFF] to-[#5856D6] text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#007AFF] to-[#5856D6] text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                             >
                                 Learn more about us
-                                <ExternalLink className="w-5 h-5" />
                             </motion.a>
                         </motion.div>
                     </motion.div>
