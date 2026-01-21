@@ -57,7 +57,7 @@ function YouTubeVideoSection() {
                             {/* Hint text */}
                             <div className="absolute bottom-4 left-0 right-0 text-center">
                                 <span className="inline-block px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium">
-                                    Click to play with sound
+                                    Click to view video
                                 </span>
                             </div>
                         </div>
