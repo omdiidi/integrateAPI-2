@@ -1,10 +1,81 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { Disc3, Camera, ImageOff, Sparkles, MapPin, Printer, Save, Minus, Plus, Info, ExternalLink } from "lucide-react";
+import { useEffect, useState, useCallback } from "react";
+import { Disc3, Camera, ImageOff, Sparkles, MapPin, Printer, Save, Minus, Plus, Info, ExternalLink, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
 const DEMO_URL = "https://vinyl-vault-backend--u1599608.replit.app/";
+const VIDEO_ID = "oKyK83O2SU8";
+
+function YouTubeVideoSection() {
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlay = useCallback(() => {
+        setIsPlaying(true);
+    }, []);
+
+    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handlePlay();
+        }
+    }, [handlePlay]);
+
+    return (
+        <div className="w-full px-4 pt-24 pb-8">
+            <div className="w-full max-w-4xl mx-auto">
+                <div
+                    className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
+                    style={{ paddingBottom: "56.25%" /* 16:9 aspect ratio */ }}
+                >
+                    {!isPlaying ? (
+                        <div
+                            role="button"
+                            tabIndex={0}
+                            aria-label="Click to play video with sound"
+                            onClick={handlePlay}
+                            onKeyDown={handleKeyDown}
+                            className="absolute inset-0 cursor-pointer group focus:outline-none focus:ring-4 focus:ring-[#007AFF]/50 rounded-2xl"
+                        >
+                            {/* Thumbnail */}
+                            <img
+                                src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                                alt="Video thumbnail"
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+
+                            {/* Dark gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                            {/* Play button */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 group-focus:scale-110">
+                                    <Play className="w-8 h-8 md:w-10 md:h-10 text-[#007AFF] ml-1" fill="currentColor" />
+                                </div>
+                            </div>
+
+                            {/* Hint text */}
+                            <div className="absolute bottom-4 left-0 right-0 text-center">
+                                <span className="inline-block px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium">
+                                    Click to play with sound
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <iframe
+                            className="absolute inset-0 w-full h-full rounded-2xl"
+                            src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+                            title="Demo Video"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        />
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
 
 function getSourceMessage(src: string | null): string {
     switch (src) {
@@ -56,11 +127,12 @@ export default function Demo() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white flex flex-col">
             <Navbar />
+            <YouTubeVideoSection />
             <motion.main
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
-                className="flex-1 flex items-center justify-center px-4 pt-24 pb-12"
+                className="flex-1 flex items-center justify-center px-4 pt-8 pb-12"
             >
                 <div className="w-full max-w-lg">
                     {/* Header Card */}
