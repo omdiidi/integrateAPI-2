@@ -163,7 +163,7 @@ export default function Demo() {
             hoverTimerRef.current = setTimeout(() => {
                 setIsExpanded(true);
                 hoverTimerRef.current = null;
-            }, 2000);
+            }, 1000);
         }
     }, [isExpanded]);
 
