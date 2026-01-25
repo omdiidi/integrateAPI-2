@@ -13,6 +13,7 @@ import Contact from "@/pages/contact";
 import Login from "@/pages/login";
 import Demo from "@/pages/demo";
 import AI4U from "@/pages/ai4u";
+import RecordStoreDemo from "@/pages/record-store-demo";
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/demo" component={Demo} />
       <Route path="/ai4u" component={AI4U} />
+      <Route path="/recordstoredemo" component={RecordStoreDemo} />
       <Route component={NotFound} />
     </Switch>
   );

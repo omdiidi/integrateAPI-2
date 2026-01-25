@@ -151,7 +151,7 @@ export default function Demo() {
     }, []);
 
     const handleViewDemo = () => {
-        window.open(DEMO_URL, "_blank", "noopener,noreferrer");
+        window.location.href = "/recordstoredemo";
     };
 
     const handleExpand = useCallback(() => {
