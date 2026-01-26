@@ -1,0 +1,103 @@
+Update the existing vinyl shop demo app so Advanced Online Settings can be opened and edited from the Online Inventory page and from the Select Marketplaces modal.
+
+Select Marketplaces modal update
+
+Keep the current modal UI and behavior for selecting marketplaces and tapping Done
+
+Add a new secondary button under the marketplace checkbox list and above the Done button
+
+Label: Advanced online settings
+
+Tapping it opens the Advanced Online Settings page for the current vinyl (or the in progress draft if adding a new record)
+
+Behavior rules
+
+Advanced Online Settings must reflect the marketplaces currently selected in this modal
+
+If no marketplaces are selected, still allow opening Advanced Online Settings
+
+Show a small note at top: select at least one marketplace to enable per marketplace fields
+
+Still allow editing and saving general online fields
+
+Online Inventory page update
+
+On the Online Inventory list page, each record card must expose two quick actions without opening the full record
+
+Edit info
+
+Advanced online settings
+
+Place these actions on the right side of each record card in a compact vertical stack or a small actions row, consistent with the current clean UI
+
+Also on each Online Inventory card
+
+Show the marketplaces it is listed on directly on the card (right side), using small chips or a compact list
+
+This must be read from the saved marketplaces array on that vinyl record
+
+If none exist, show “No marketplaces” in a subtle style
+
+Navigation and editing behavior
+
+Tapping Edit info opens the normal edit record screen
+
+Tapping Advanced online settings opens the Advanced Online Settings page for that record
+
+After saving Advanced Online Settings, return the user back to the Online Inventory list and immediately reflect changes on that record card
+
+Advanced Online Settings page requirements
+
+Must be reachable from both entry points
+
+Select Marketplaces modal
+
+Online Inventory list page
+
+Must load and save per vinyl record
+
+Store advanced settings in the database under a JSON field (Prisma Json or a text field containing JSON) linked to the vinyl record
+
+Suggested fields to include in Advanced Online Settings (demo friendly)
+General
+
+Listing title override
+
+Listing description
+
+SKU
+
+Shipping profile name
+Per marketplace (only show for selected marketplaces)
+
+Status (active or draft)
+
+Price override
+
+Quantity override
+
+Notes
+
+Data requirements
+
+Ensure each vinyl record stores
+
+marketplaces (array)
+
+onlineSettings (json)
+
+Ensure API supports reading and updating these fields
+
+PATCH /api/vinyls/:id must accept marketplaces and onlineSettings updates
+
+Ensure Online Inventory page queries include marketplaces and onlineSettings so the UI can display them and open advanced settings quickly
+
+UI requirements
+
+Mobile first, clean, modern, bright accents, large tap targets
+
+Keep the current styling language consistent with the existing cards and modal
+
+Do not build real marketplace posting integrations today, only store selections and advanced settings as data
+
+ChatGPT can make mistakes. Check important info.

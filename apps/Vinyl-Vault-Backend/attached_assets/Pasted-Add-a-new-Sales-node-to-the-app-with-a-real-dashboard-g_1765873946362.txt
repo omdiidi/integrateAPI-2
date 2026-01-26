@@ -1,0 +1,159 @@
+Add a new Sales node to the app with a real dashboard, graphs, and sales log powered by sold items. Also add a Sold items button to view all sold records. Seed fake sales and fake orders with dates.
+
+Home and navigation
+
+Add a new home tile labeled Sales
+
+Sales tile routes to a new page: /sales
+
+Backend and database
+
+Create new tables (Prisma + migration)
+
+SalesOrder
+
+id
+
+orderNumber (string)
+
+soldAt (datetime)
+
+channel (enum: inStore, online, network)
+
+marketplace (string optional, ex eBay, Discogs, Amazon)
+
+buyerName (string optional)
+
+buyerEmail (string optional)
+
+totalCents (int)
+
+SalesLineItem
+
+id
+
+orderId (fk)
+
+vinylId (fk nullable, keep snapshot even if vinyl changes)
+
+artist (string)
+
+releaseTitle (string)
+
+quantity (int)
+
+unitPriceCents (int)
+
+lineTotalCents (int)
+
+Update the existing Sold action so it also creates sales records
+
+When a vinyl is sold, create a SalesOrder plus one SalesLineItem (or attach to an existing order if you already have that concept)
+
+Store a snapshot of artist and releaseTitle on the line item so historical sales stay accurate
+
+If quantity is decremented, create the line item with that quantity and correct totals
+
+API
+
+Add endpoints
+
+GET /api/sales/orders (supports date range and search)
+
+GET /api/sales/orders/:id (includes line items)
+
+GET /api/sales/line-items (supports date range and search)
+
+GET /api/sales/stats?range=7|30|90|all returns aggregated metrics for graphs
+
+Ensure the Sold action endpoint calls the same create logic so the dashboard always reflects real data
+
+Seed fake data
+
+On first run, seed:
+
+10 fake shops already exist for Network, keep those
+
+60 fake orders across the last 90 days with realistic dates
+
+Each order has 1 to 3 line items
+
+Use realistic record titles and artists (can reuse your existing seeded inventory plus extra fake ones)
+
+Mix channels: inStore and online, plus a few network requests converted to sales
+
+Populate marketplace for online orders (eBay, Discogs, Amazon)
+
+Make prices and quantities realistic, and compute totals correctly
+
+Sales dashboard UI
+
+Create /sales page with:
+
+Date range selector: 7 days, 30 days, 90 days, all
+
+KPI cards:
+
+Total revenue
+
+Units sold
+
+Orders count
+
+Average order value
+
+Graphs using real aggregated sales data:
+
+Line chart: revenue by day (or by week when range is 90 or all)
+
+Bar chart: top artists by revenue
+
+Pie chart: sales by channel (inStore vs online vs network)
+
+Sales log preview (most recent 10 line items)
+
+Sales log page and Sold items button
+
+Add a prominent Sold items button on the Sales dashboard
+
+Routes to /sales/sold-items
+
+/sales/sold-items page
+
+Full list of SalesLineItems with:
+
+Date
+
+Artist
+
+Release title
+
+Quantity
+
+Price
+
+Channel and marketplace if applicable
+
+Order number
+
+Search bar filters by artist, title, order number
+
+Tap a row to open order detail
+
+Order detail page
+
+/sales/orders/:id
+
+Show order header info (date, channel, marketplace, totals)
+
+Show line items list
+
+UI requirements
+
+Mobile first, clean, same design language as the rest of the app
+
+Charts should be responsive and readable on phone
+
+All dashboard numbers and charts must be computed from SalesOrder and SalesLineItem data, not hardcoded
+
+ChatGPT can make mistakes. Check important info.

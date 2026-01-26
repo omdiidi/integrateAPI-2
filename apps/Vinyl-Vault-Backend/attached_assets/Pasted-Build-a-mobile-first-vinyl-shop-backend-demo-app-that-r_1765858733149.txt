@@ -1,0 +1,149 @@
+Build a mobile first vinyl shop backend demo app that runs in Replit and is optimized for phone use.
+
+Goal
+Create a clean, modern, bright colored interface that lets a shop quickly add vinyl to a database, track in store vs online inventory, and remove items later when sold. Do not build real marketplace posting integrations today. Only store the selected marketplaces as data.
+
+Tech stack
+
+* Frontend: React + Vite + TypeScript + Tailwind CSS
+* Backend: Node.js + Express
+* Database: SQLite (file based) using Prisma ORM
+* Image handling: store the captured image as a file in the project (or base64 in DB if simpler) and save its reference on the vinyl record
+
+Core screens and flow
+
+1. Home screen (first screen)
+   Show four large buttons in a simple grid:
+
+* Scan
+* View in store inventory
+* View online inventory
+* View inventory
+
+2. Scan flow
+   When user taps Scan, show a simple choice screen:
+
+* Use camera
+* No image
+
+If Use camera
+
+* Open device camera using an input that triggers camera on mobile (input type="file" accept="image/*" capture="environment")
+* After the photo is taken, go to the Add vinyl form screen with the image preview shown at top
+
+If No image
+
+* Go to the Add vinyl form screen without an image
+
+3. Add vinyl form screen
+
+* Title at top: Add vinyl
+* All fields are optional except Artist and Release title, which are required
+* Use a clean form layout with clear labels, big touch targets, and minimal clutter
+
+Fields to collect (exact list)
+Required
+
+* Artist (required)
+* Release title (required)
+
+Optional
+
+* Label
+* Catalog number
+* Format (LP, 7 inch, 12 inch, EP, Single, Box Set)
+* Country of release
+* Year of release (printed or estimated)
+* Edition notes (original pressing, reissue, promo, remaster, limited if relevant)
+* Matrix runout Side A (exact transcription)
+* Matrix runout Side B (exact transcription)
+* Additional runout markings or stamps (yes or no box)
+* Mastering or plant identifiers present in runout (yes or no box)
+* Media grade
+* Sleeve grade
+* Play tested (yes or no box)
+* Playback issues (yes or no box)
+* Brief playback notes
+* Warp present (yes or no box)
+* Warp affects play (yes or no box)
+* Pressing defects present (yes or no box)
+* Original inner sleeve included (yes or no box)
+* Original inserts included (yes or no box)
+* Seam splits present (yes or no box)
+* Writing or stickers on sleeve or labels (yes or no box)
+* Sealed copy (yes or no box)
+* If sealed, shrink original (yes or no box)
+* Seller notes (short, factual)
+* Price
+
+Bottom action area on the form (always visible, sticky)
+Include these controls exactly, with clear layout:
+
+* In store inventory (checkbox)
+* Online inventory (checkbox) with an Edit button next to it
+
+  * Edit opens a simple modal or new screen listing marketplaces with checkboxes:
+
+    * eBay
+    * Discogs
+    * Amazon
+* Hold for customer (checkbox)
+* Quantity (number input, default 1, minimum 1)
+* Assign location (+) button
+
+  * Tapping opens a small UI to pick or type a location label, and allow creating a new one
+* Save as draft button
+
+  * Saves record as draft in DB and returns to Home
+* Print button (primary)
+
+  * Validates required fields
+  * Saves record into DB as active with all selected flags
+  * Opens a simple print view and triggers browser print (window.print)
+  * After printing, automatically returns to Home
+
+Inventory views
+
+* View inventory shows all records with simple cards (Artist, Release title, Price if present, Quantity, flags like In store, Online, Draft, Hold, Location)
+* View in store inventory shows only records where inStore is true and not draft
+* View online inventory shows only records where online is true and not draft
+* Each list screen should allow tapping a record to open a detail screen with an Edit button and a Delete button
+* Include a simple Sold action on detail screen that reduces quantity by 1, and if quantity becomes 0 it removes it from active inventory (either delete or mark as sold, but keep it simple and consistent)
+
+Backend requirements
+Prisma schema for a Vinyl table with fields to match the form, plus:
+
+* id
+* createdAt
+* updatedAt
+* status (draft or active)
+* inStore (boolean)
+* online (boolean)
+* holdForCustomer (boolean)
+* quantity (int)
+* location (string)
+* marketplaces (json string or separate table)
+* imagePath (string, optional)
+
+API endpoints
+
+* POST /api/vinyls
+* GET /api/vinyls with optional filters (all, inStore, online, status)
+* GET /api/vinyls/:id
+* PUT or PATCH /api/vinyls/:id
+* DELETE /api/vinyls/:id
+* POST /api/vinyls/:id/sold to decrement quantity
+
+UI requirements
+
+* Mobile first layout, responsive for desktop but designed for phone
+* Bright, modern look with lots of whitespace
+* Large buttons, clear typography, clean cards
+* Simple navigation with a back button on secondary screens
+* No complicated features beyond what is described
+
+Demo readiness
+
+* Seed the database with 5 sample vinyl records on first run or provide a Seed button in a hidden dev route
+* Make sure it runs with one command in Replit and works in the mobile preview
+* Keep code clean and easy to extend later for real marketplace integration

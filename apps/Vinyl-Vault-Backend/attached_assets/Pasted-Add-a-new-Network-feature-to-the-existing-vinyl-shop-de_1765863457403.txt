@@ -1,0 +1,86 @@
+Add a new Network feature to the existing vinyl shop demo app.
+
+Home screen update
+
+Add a new tile button on the home screen labeled Network
+
+Use the same tile style as the other buttons, mobile first, clean, bright
+
+Tapping Network navigates to the Network section
+
+Network section overview
+Purpose
+
+This is a shared online database of vinyl inventory across many different shops
+
+For the demo, this is fake data stored locally in the app database, but structured as if it were a real network
+
+Network list screen
+
+Show a long scrollable list of network records
+
+Insert 100 fake vinyl records as examples on first run (seed data)
+
+Include a search bar at the top that filters by artist, release title, label, catalog number, and format
+
+Each list row shows at minimum: Artist, Release title, price if present, and a small chip showing which shop has it
+
+Tapping a row opens a Network item detail screen
+
+Network item detail screen
+
+Show the vinyl info (artist, title, key identifiers)
+
+Show the shop that has it, including:
+
+Store name
+
+Phone number
+
+Email
+
+Include a primary button: Request
+
+Tapping Request opens a DM page with that shop
+
+DM page
+
+Simple messaging UI for demo purposes
+
+Header shows the shop name and the vinyl being requested
+
+Show a message thread area (can be fake seeded messages)
+
+Text input at bottom with Send button
+
+Sending a message appends to the local thread in the database
+
+My Network Listings
+
+In the Network section, include a button or tab labeled My Listings
+
+This shows items from this shop that are listed in the network
+
+Allow adding an item from the local inventory into the network listing:
+
+Simple select flow: choose an existing vinyl from the shop inventory and publish it to the network
+
+Store it as a network listing tied to this shop profile
+
+Data modeling (demo)
+
+Create a Shop table for network shops: id, name, phone, email
+
+Create a NetworkListing table: id, vinyl fields summary, shopId foreign key, createdAt
+
+Seed at least 10 different shops and distribute the 100 fake records across them
+
+Ensure search and detail views pull from NetworkListing joined with Shop
+
+UI requirements
+
+Keep everything phone optimized
+
+Maintain the same modern design language as the home tiles and inventory cards
+
+Keep flows fast, minimal taps, and easy to demo

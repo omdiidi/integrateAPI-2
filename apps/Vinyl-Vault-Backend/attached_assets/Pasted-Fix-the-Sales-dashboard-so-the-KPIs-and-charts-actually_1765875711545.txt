@@ -1,0 +1,91 @@
+Fix the Sales dashboard so the KPIs and charts actually show real data (not $0.00 and empty dashed placeholders) and match the Recent Sales list.
+
+What to fix
+
+Recent Sales is showing records, so sales data exists
+
+KPIs and charts are still zero or blank, which means the dashboard stats query, aggregation, or chart binding is wrong
+
+Backend fixes
+
+Ensure SalesOrder.totalCents is correctly set for all orders (seeded and real)
+
+When creating an order (seed or Sold action), set totalCents = sum(lineTotalCents) of its SalesLineItems
+
+If totalCents is currently 0 for existing orders, backfill it during seed or on server startup in dev
+
+Fix /api/sales/stats so it aggregates from SalesLineItem (most reliable) and filters by soldAt correctly
+
+Parse range (7, 30, 90, all) into a startDate
+
+Query SalesLineItem joined to SalesOrder where SalesOrder.soldAt is between startDate and now
+
+Compute:
+
+totalRevenueCents = SUM(lineTotalCents)
+
+unitsSold = SUM(quantity)
+
+orderCount = COUNT(DISTINCT orderId)
+
+avgOrderCents = totalRevenueCents / max(orderCount, 1)
+
+revenueOverTime = group by day (or week for 90/all) based on soldAt
+
+topArtists = group by artist order by revenue desc limit 8
+
+salesByChannel = group by SalesOrder.channel
+
+Return JSON in a shape the frontend can directly use:
+
+{ kpis: { totalRevenueCents, unitsSold, orderCount, avgOrderCents }, revenueOverTime: [{ date, revenueCents }], topArtists: [{ artist, revenueCents }], salesByChannel: [{ channel, revenueCents }] }
+
+Seed data fix
+
+Confirm the seeded orders have soldAt values spread across the last 90 days (not all today)
+
+Confirm seeded line items have non zero unitPriceCents and lineTotalCents
+
+Confirm seeded orders have totalCents populated and not zero
+
+Frontend fixes
+
+Update the Sales dashboard page to use only /api/sales/stats for KPIs and charts
+
+Do not compute KPIs from a different endpoint than Recent Sales
+
+Convert cents to dollars in the UI consistently
+
+Replace the dashed placeholder boxes with real charts (Recharts) and bind to the returned arrays
+
+Revenue Over Time: LineChart using revenueOverTime
+
+Top Artists: BarChart using topArtists
+
+Sales by Channel: PieChart using salesByChannel
+
+Add correct loading and empty states
+
+While loading: show skeleton or spinner
+
+If arrays are empty: show “No sales in selected range” instead of a blank dashed box
+
+Make sure the date range selector actually refetches /api/sales/stats with the selected range, and uses soldAt (not createdAt)
+
+Debug requirement
+
+Add temporary console logs or a small dev panel to print the /api/sales/stats response
+
+Verify the response has non zero totals and non empty arrays, then remove the debug output
+
+Acceptance check
+
+KPIs show non zero values when Recent Sales has rows
+
+Revenue Over Time chart has points
+
+Top Artists and Sales by Channel charts are populated
+
+Changing range updates KPIs and charts immediately
+
+ChatGPT can make mistakes. Check important info.
