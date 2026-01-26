@@ -65,7 +65,7 @@ export function MarketplaceModal({
   const handleSaveMarketplaceSettings = (marketplace: Marketplace, settings: MarketplaceSettings) => {
     if (onSettingsChange) {
       const newSettings: OnlineSettings = {
-        ...onlineSettings,
+        ...(onlineSettings ?? {}),
         perMarketplace: {
           ...onlineSettings?.perMarketplace,
           [marketplace]: settings,
