@@ -1,6 +1,26 @@
 {
     "rewrites": [
         {
+            "source": "/recordstoredemo/:path*",
+            "destination": "https://vinyl-vault-backend--u1599608.replit.app/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "integrateapi.ai"
+                }
+            ]
+        },
+        {
+            "source": "/recordstoredemo/:path*",
+            "destination": "https://vinyl-vault-backend--u1599608.replit.app/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.integrateapi.ai"
+                }
+            ]
+        },
+        {
             "source": "/api/:path*",
             "destination": "/api/:path*"
         },

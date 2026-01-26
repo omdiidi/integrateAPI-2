@@ -30,7 +30,7 @@ export function ModularSolutions() {
           </div>
 
           {/* Right Network Visualization */}
-          <div className="relative h-[400px] w-full flex items-center justify-center">
+          <div className="hidden md:block relative h-[400px] w-full flex items-center justify-center">
             {/* Center Hub */}
             <div className="relative z-20 h-24 w-24 bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center justify-center animate-pulse">
               <div className="h-16 w-16 bg-primary rounded-xl flex items-center justify-center text-white">
