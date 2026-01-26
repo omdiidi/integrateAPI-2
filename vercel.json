@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/recordstoredemo/:path*",
-            "destination": "https://vinyl-vault-backend--u1599608.replit.app/:path*",
+            "destination": "/recordstoredemo/index.html",
             "has": [
                 {
                     "type": "host",
@@ -12,7 +12,7 @@
         },
         {
             "source": "/recordstoredemo/:path*",
-            "destination": "https://vinyl-vault-backend--u1599608.replit.app/:path*",
+            "destination": "/recordstoredemo/index.html",
             "has": [
                 {
                     "type": "host",
