@@ -77,7 +77,7 @@ export function Hero() {
 
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-primary leading-[1.1] mb-6 tracking-tight">
-              Calm your business chaos with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">smart systems.</span>
+              Your business operates like a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">skyscraper built without the crane</span>
             </h1>
 
             <p className="text-lg text-slate-600 mb-4 md:mb-8 leading-relaxed">
